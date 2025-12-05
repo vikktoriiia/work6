@@ -1,0 +1,71 @@
+@startuml
+class task2.OrderedIntegerList {
+- List<Integer> data
++ void add(int)
++ void remove(int)
++ int get(int)
++ int size()
++ Iterator createIterator()
+}
+
+
+class task1.CompositeGameElement {
+- String name
+- List<GameElement> children
++ void add(GameElement)
++ GameElement cloneShallow()
++ GameElement cloneDeep()
++ void print(String)
+}
+
+
+class task2.OrderedIterator {
+- OrderedIntegerList list
+- int index
++ boolean hasNext()
++ int next()
+}
+
+
+interface task2.IntegerList {
+~ void add(int)
+~ void remove(int)
+~ int get(int)
+~ int size()
+~ Iterator createIterator()
+}
+
+class task2.Task2Main {
++ {static} void main(String[])
+}
+
+interface task2.Iterator {
+~ boolean hasNext()
+~ int next()
+}
+
+class task1.Task1Main {
++ {static} void main(String[])
+}
+
+interface task1.GameElement {
+~ GameElement cloneShallow()
+~ GameElement cloneDeep()
+~ void print(String)
+}
+
+class task1.LeafGameElement {
+- String name
++ GameElement cloneShallow()
++ GameElement cloneDeep()
++ void print(String)
+}
+
+
+
+
+task2.IntegerList <|.. task2.OrderedIntegerList
+task1.GameElement <|.. task1.CompositeGameElement
+task2.Iterator <|.. task2.OrderedIterator
+task1.GameElement <|.. task1.LeafGameElement
+@enduml
